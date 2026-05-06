@@ -22,4 +22,4 @@ Permitir el análisis completo en SonarCloud para comentar métricas como:
 - Type
 - Technical Debt
 
-## Actualización de perfil de calidad
+## Actualización de perfil de calidad.
