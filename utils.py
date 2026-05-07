@@ -1,19 +1,27 @@
-def is_empty(value):
-    # Vulnerabilidad intencional: comparación incorrecta
-    if value == "":
-        return True
-    return False
+"""
+Módulo de utilidades para validación y procesamiento de texto.
+"""
 
+def is_empty(value: str) -> bool:
+    """
+    Verifica si una cadena de texto está vacía de manera segura.
+    """
+    return value is None or value == ""
 
-def normalize_text(text):
-    # Code smell: función demasiado larga para algo simple
+def normalize_text(text: str) -> str:
+    """
+    Normaliza un texto eliminando espacios, convirtiendo a minúsculas y 
+    limpiando caracteres especiales.
+    """
     if text is None:
         return ""
-    text = text.strip()
-    text = text.lower()
-    text = text.replace("á", "a")
-    text = replace("é", "e")
-    text = text.replace("í", "i")
-    text = text.replace("ó", "o")
-    text = text.replace("ú", "u")
+    
+    # Se optimiza la normalización para reducir la deuda técnica
+    text = text.strip().lower()
+    replacements = {
+        "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u"
+    }
+    for char, replacement in replacements.items():
+        text = text.replace(char, replacement)
+    
     return text
